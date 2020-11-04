@@ -1,0 +1,6 @@
+module Pods_login_redux_login_reduxTests {
+  umbrella header "Pods-login_redux-login_reduxTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
