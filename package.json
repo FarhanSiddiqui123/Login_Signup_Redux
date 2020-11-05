@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/masked-view": "^0.1.10",
     "react": "16.13.1",
     "react-native": "0.63.3",
@@ -19,7 +20,11 @@
     "react-native-screens": "^2.12.0",
     "react-navigation": "^4.4.3",
     "react-navigation-stack": "^2.10.0",
-    "react-navigation-tabs": "^2.10.1"
+    "react-navigation-tabs": "^2.10.1",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

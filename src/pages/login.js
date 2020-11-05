@@ -3,6 +3,8 @@ import styles from "../styles/login-styles";
 import {Keyboard, KeyboardAvoidingView, 
     SafeAreaView, Text, TextInput,TouchableOpacity, 
     TouchableWithoutFeedback,View} from "react-native";
+import { connect } from "react-redux";
+import * as TASKS from '../store/action/index';      
 
 
 class Login extends Component {
@@ -17,12 +19,13 @@ constructor(props){
     
 }
 
-loginFunc=async()=>{
-    this.props.navigation.navigate('app')
+loginFunc(params){
+    mapDispatchToProps(params);
+    //this.props.navigation.navigate('app')
 }
 signupFunc(){
     this.props.navigation.navigate('signupScreen')
-  //alert('signup Pressed..')
+
 }
   render() {
       return (
@@ -57,7 +60,7 @@ signupFunc(){
                                       onChangeText={(password) => this.setState({password})}
                                       value={this.state.password}
                                   />
-                                  <TouchableOpacity style={styles.buttonContainer} onPress={()=>{this.loginFunc()}}>
+                                  <TouchableOpacity style={styles.buttonContainer} onPress={()=>{this.loginFunc(this.state)}}>
                                       <Text style={styles.buttonText}>
                                           LOGIN
                                       </Text>
@@ -79,4 +82,17 @@ signupFunc(){
 }
 
 
-export default Login;
+const mapStateToProps = (state) => {
+    return {
+      Password:state.password,
+      Userename:state.username,
+    };
+  };
+const mapDispatchToProps = (dispatch) => {
+    return {
+       login:(params) => dispatch(TASKS.loginAction(params)),
+    };
+  };
+  
+  
+export default connect(mapStateToProps,mapDispatchToProps)(Login);
